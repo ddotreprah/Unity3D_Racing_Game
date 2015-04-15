@@ -22,7 +22,7 @@ function LateUpdate () {
     myHeight = Mathf.Lerp(myHeight,wantedHeight,heightDamping * Time.deltaTime);
     var currentRotation = Quaternion.Euler(0,myAngle,0);
     transform.position = car.position;
-    transform.position -= currentRotation*Vector3.forward*distance;
+    transform.position -= currentRotation*(-Vector3.forward)*distance;
     transform.position.y = myHeight;
     transform.LookAt(car);
 }
