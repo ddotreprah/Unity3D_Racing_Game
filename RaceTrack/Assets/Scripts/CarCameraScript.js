@@ -1,4 +1,7 @@
 ﻿#pragma strict
+var Vector : Transform;
+var Lucky : Transform;
+var Broken : Transform;
 var car : Transform;
 var distance : float = 6.4;
 var height : float = 1.4;
@@ -7,9 +10,30 @@ var heightDamping : float = 2.0;
 var zoomRatio : float = 0.5;
 var defaultFOV : float = 60;
 private var rotationVector : Vector3;
+var alli : CarControlScript;
+var monk : CarControlScript;
+var wolf : CarControlScript;
+
 
 function Start () {
 
+	alli = Vector.GetComponent(CarControlScript);
+	monk = Lucky.GetComponent(CarControlScript);
+	wolf = Broken.GetComponent(CarControlScript);
+
+	if (alli.isActive)
+		{
+			car = Vector;
+		}
+	else if(monk.isActive)
+		{
+			car = Lucky;
+			distance = 4.0f;
+		}
+	else
+		{
+			car = Broken;
+		}
 }
 
 function LateUpdate () {
