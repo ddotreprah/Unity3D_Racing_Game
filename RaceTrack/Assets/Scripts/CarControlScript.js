@@ -5,11 +5,12 @@ var wheelRL : WheelCollider;
 var wheelRR : WheelCollider;
 var maxTorque : float = 30;
 var isActive  = true;
- 
+var maxSpeed : float = 20;
+
  
 function Start () {
 
-    rigidbody.centerOfMass.y = -4.0f;
+    rigidbody.centerOfMass.y = -2.0f;
     
 
 }
@@ -23,5 +24,11 @@ if (isActive ==  true)
 	    wheelFL.steerAngle = 25 * Input.GetAxis("Horizontal");
 	    wheelFR.steerAngle = 25 * Input.GetAxis("Horizontal");
 	 }   
+   
+if(rigidbody.velocity.magnitude > maxSpeed)
+	{
+	rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
+	}
+	
    
 }
