@@ -32,6 +32,7 @@ public class Menu : MonoBehaviour
 		var rect = GetComponent<RectTransform>();
 		rect.offsetMax = rect.offsetMin = new Vector2(0,0);
 	}
+	public void Updated(){
 
 }
 
