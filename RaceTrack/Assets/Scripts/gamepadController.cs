@@ -18,7 +18,7 @@ public class gamepadController : MonoBehaviour
 
     void start()
     {
-        rigidbody.centerOfMass.y = -2.0f;
+        //rigidbody.centerOfMass.y = -2.0f;
     }
     void Awake()
     {
