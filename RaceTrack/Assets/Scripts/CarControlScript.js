@@ -21,8 +21,8 @@ if (isActive ==  true)
 	{
 	    wheelRR.motorTorque = -maxTorque * Input.GetAxis("Vertical");
 	    wheelRL.motorTorque = -maxTorque * Input.GetAxis("Vertical");
-	    wheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
-	    wheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
+	    wheelFL.steerAngle = 5 * Input.GetAxis("Horizontal");
+	    wheelFR.steerAngle = 5 * Input.GetAxis("Horizontal");
 	 }   
    
 if(rigidbody.velocity.magnitude > maxSpeed)
