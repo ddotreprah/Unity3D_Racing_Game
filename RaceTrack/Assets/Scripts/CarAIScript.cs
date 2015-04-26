@@ -9,10 +9,8 @@ public class CarAIScript : MonoBehaviour {
     public WheelCollider frontRightWheel;
     public GameObject waypointContainer;
     public float speed = 10.0f;
-    private float rotationSpeed = 4.0f;
-    private float inputSteer = 0.0f;
-    private float steeringSharpness = 12.0f;
 
+    //Help from Dr. Mayfield's waypoints test and https://www.youtube.com/watch?v=VbBY_jezoDI
     // Use this for initialization
     void Start()
     {
@@ -40,11 +38,9 @@ public class CarAIScript : MonoBehaviour {
         //float SpeedLimit = 100;
 
         Vector3 movement = NavigateTowardWaypoint();
+        transform.LookAt(waypoints[currentWaypoint].position);
 
         GetComponent<Rigidbody>().velocity = movement.normalized * speed * 100 * Time.deltaTime;
-
-        	frontLeftWheel.steerAngle = (steeringSharpness) * inputSteer;
-	        frontRightWheel.steerAngle = (steeringSharpness) * inputSteer;
     }
 
     Vector3 NavigateTowardWaypoint()
@@ -52,13 +48,10 @@ public class CarAIScript : MonoBehaviour {
         Vector3 relativeWaypointPosition =
             waypoints[currentWaypoint].position - transform.position;
 
-        inputSteer = relativeWaypointPosition.x / relativeWaypointPosition.magnitude;
-
         if (relativeWaypointPosition.magnitude < 1)
         {
             currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
             print("Current waypoint: " + currentWaypoint);
-            inputSteer = relativeWaypointPosition.x / relativeWaypointPosition.magnitude;
         }
 
         return relativeWaypointPosition;

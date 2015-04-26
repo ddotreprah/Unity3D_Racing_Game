@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+//
 public class pickUpRotator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
 	
 	}
-	
+    //http://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects
 	// Update is called once per frame
 	void Update () 
     {

@@ -14,7 +14,7 @@ var alli : CarControlScript;
 var monk : CarControlScript;
 var wolf : CarControlScript;
 
-
+//Script from Easy Roads 3d example Unity store
 function Start () {
 
 	alli = Vector.GetComponent(CarControlScript);
