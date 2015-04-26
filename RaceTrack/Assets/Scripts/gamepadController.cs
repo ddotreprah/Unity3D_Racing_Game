@@ -11,7 +11,6 @@ public class gamepadController : MonoBehaviour
     public WheelCollider wheelRR;
     public float maxTorque = 30.0f;
     public float maxSpeed = 20.0f;
-    public float speed = 10.0f;            // The speed that the player will move at.
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     public bool isActive;
