@@ -8,12 +8,14 @@ var isActive  = true;
 var maxSpeed : float = 20;
 var SecondHalf = true;
 var FirstHalf = false;
+var finished = false;
 var lapCounter : int = 0;
 var place : int;
 public var Rac1 : GameObject;
 public var Rac2 : GameObject;
 public var Racer1 : CarControlScript;
 public var Racer2 : CarControlScript;
+var pauseMenuFont : Font;
 //Script from Easy Roads 3d example Unity store
 function Awake()
 {
@@ -55,14 +57,14 @@ function OnTriggerEnter(collision : Collider)
 				lapCounter++;
 				Debug.Log(lapCounter);
 				FirstHalf = true;
-				if (lapCounter == 1)
+				if (lapCounter == 4)
 					{
-						if ((Racer1.lapCounter < 1 && Racer2.lapCounter < 1))
+						if ((Racer1.lapCounter < 4 && Racer2.lapCounter < 4))
 							{
 							
 								place = 1;
 							}
-						else if ((Racer1.lapCounter == 1 && Racer2.lapCounter < 1) || (Racer1.lapCounter < 1 && Racer2.lapCounter == 1))
+						else if ((Racer1.lapCounter == 4 && Racer2.lapCounter < 4) || (Racer1.lapCounter < 4 && Racer2.lapCounter == 4))
 							{
 								place = 2;
 							}
@@ -72,6 +74,8 @@ function OnTriggerEnter(collision : Collider)
 							}
 						Debug.Log("Place");
 						Debug.Log(place);	
+						finished = true;
+						
 					
 					}
 				SecondHalf =false;
@@ -86,4 +90,29 @@ function OnTriggerEnter(collision : Collider)
 				FirstHalf = false;
 			}
 		}
+}
+
+function OnGUI()
+{
+	GUI.skin.box.font = pauseMenuFont;
+	GUI.skin.button.font = pauseMenuFont;
+	if (isActive && finished)
+	{
+		GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 200, 350,300), "Finished. Place: " + place.ToString());
+		
+		if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 250,50), "Main Menu"))
+		{
+			Application.LoadLevel("Menu");	
+		}
+		if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 50, 250,50), "Restart Level"))
+		{
+			Application.LoadLevel(Application.loadedLevel);
+		}
+		if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2, 250,50), "Quit"))
+		{
+			Application.Quit();
+		}
+
+	}
+
 }
