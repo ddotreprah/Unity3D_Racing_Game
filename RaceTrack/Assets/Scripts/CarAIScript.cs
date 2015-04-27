@@ -35,10 +35,13 @@ public class CarAIScript : MonoBehaviour {
 
     void FixedUpdate()
     {
-        //float SpeedLimit = 100;
 
         Vector3 movement = NavigateTowardWaypoint();
-        transform.LookAt(waypoints[currentWaypoint].position);
+
+        float rotSpeed = Mathf.Deg2Rad * 360;
+        Vector3 nextRot = waypoints[currentWaypoint].position - transform.position;
+        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, nextRot, Time.deltaTime * rotSpeed, 0.0f));
+
 
         GetComponent<Rigidbody>().velocity = movement.normalized * speed * 100 * Time.deltaTime;
     }
