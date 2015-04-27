@@ -1,4 +1,5 @@
 ﻿#pragma strict
+import UnityEngine.UI;
 var wheelFL : WheelCollider;
 var wheelFR : WheelCollider;
 var wheelRL : WheelCollider;
@@ -16,6 +17,9 @@ public var Rac2 : GameObject;
 public var Racer1 : CarControlScript;
 public var Racer2 : CarControlScript;
 var pauseMenuFont : Font;
+var lap : UI.Text;
+var timer : UI.Text;
+var myTimer: float =  0;
 //Script from Easy Roads 3d example -- Unity store
 function Awake()
 {
@@ -38,6 +42,9 @@ function FixedUpdate () {
 	    wheelRL.motorTorque = -maxTorque * Input.GetAxis("Vertical");
 	    wheelFL.steerAngle = 5 * Input.GetAxis("Horizontal");
 	    wheelFR.steerAngle = 5 * Input.GetAxis("Horizontal");
+	    lap.text = "Lap: " + lapCounter.ToString() + "/3";
+	    timer.text = "Time: "  + myTimer.ToString();
+	    myTimer += Time.deltaTime;
     }   
 
    
