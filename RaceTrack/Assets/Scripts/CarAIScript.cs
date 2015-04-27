@@ -15,41 +15,42 @@ public class CarAIScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        // Get the waypoint transforms.
         if (isAIActive)
         {
-            GetComponent<CarAIScript>().enabled = true;
-        }
-        // Get the waypoint transforms.
-        Transform[] potentialWaypoints = waypointContainer.GetComponentsInChildren<Transform>();
+            Transform[] potentialWaypoints = waypointContainer.GetComponentsInChildren<Transform>();
 
-        waypoints = new Transform[potentialWaypoints.Length - 1];
+            waypoints = new Transform[potentialWaypoints.Length - 1];
 
-        print("PlayerScript:  " + potentialWaypoints.Length);
+            print("PlayerScript:  " + potentialWaypoints.Length);
 
-        for (int i = 0, j = 0; i < potentialWaypoints.Length; i++)
-        {
-            if (potentialWaypoints[i] != waypointContainer.transform)
+            for (int i = 0, j = 0; i < potentialWaypoints.Length; i++)
             {
-                // This is not the container; add the waypoint to the array.
-                waypoints[j++] = potentialWaypoints[i];
+                if (potentialWaypoints[i] != waypointContainer.transform)
+                {
+                    // This is not the container; add the waypoint to the array.
+                    waypoints[j++] = potentialWaypoints[i];
+                }
             }
-        }
 
-        GetComponent<Rigidbody>().velocity = Vector3.right * speed;
+
+            GetComponent<Rigidbody>().velocity = Vector3.right * speed;
+        }
     }
 
     void FixedUpdate()
     {
+        if (isAIActive)
+        {
+            Vector3 movement = NavigateTowardWaypoint();
 
-        Vector3 movement = NavigateTowardWaypoint();
-
-        float rotSpeed = Mathf.Deg2Rad * 360;
-        Vector3 nextRot = waypoints[currentWaypoint].position - transform.position;
-        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, nextRot, Time.deltaTime * rotSpeed, 0.0f));
+            float rotSpeed = Mathf.Deg2Rad * 360;
+            Vector3 nextRot = waypoints[currentWaypoint].position - transform.position;
+            transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, nextRot, Time.deltaTime * rotSpeed, 0.0f));
 
 
-        GetComponent<Rigidbody>().velocity = movement.normalized * speed * 100 * Time.deltaTime;
+            GetComponent<Rigidbody>().velocity = movement.normalized * speed * 100 * Time.deltaTime;
+        }
     }
 
     Vector3 NavigateTowardWaypoint()
