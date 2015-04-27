@@ -9,11 +9,17 @@ public class CarAIScript : MonoBehaviour {
     public WheelCollider frontRightWheel;
     public GameObject waypointContainer;
     public float speed = 10.0f;
+    public bool isAIActive = false;
 
     //Help from Dr. Mayfield's waypoints test and https://www.youtube.com/watch?v=VbBY_jezoDI
     // Use this for initialization
     void Start()
     {
+
+        if (isAIActive)
+        {
+            GetComponent<CarAIScript>().enabled = true;
+        }
         // Get the waypoint transforms.
         Transform[] potentialWaypoints = waypointContainer.GetComponentsInChildren<Transform>();
 

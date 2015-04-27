@@ -16,7 +16,7 @@ public var Rac2 : GameObject;
 public var Racer1 : CarControlScript;
 public var Racer2 : CarControlScript;
 var pauseMenuFont : Font;
-//Script from Easy Roads 3d example Unity store
+//Script from Easy Roads 3d example -- Unity store
 function Awake()
 {
 	Racer1 = Rac1.GetComponent(CarControlScript);
@@ -32,17 +32,18 @@ function Start () {
 
 function FixedUpdate () {
 
-if (isActive ==  true)
+    if (isActive ==  true)
 	{
 	    wheelRR.motorTorque = -maxTorque * Input.GetAxis("Vertical");
 	    wheelRL.motorTorque = -maxTorque * Input.GetAxis("Vertical");
 	    wheelFL.steerAngle = 5 * Input.GetAxis("Horizontal");
 	    wheelFR.steerAngle = 5 * Input.GetAxis("Horizontal");
-	 }   
+    }   
+
    
-if(rigidbody.velocity.magnitude > maxSpeed)
+    if(rigidbody.velocity.magnitude > maxSpeed)
 	{
-	rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
+	    rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
 	}
 	
    
