@@ -64,7 +64,7 @@ function OnTriggerEnter(collision : Collider)
 							
 								place = 1;
 							}
-						else if ((Racer1.lapCounter == 4 && Racer2.lapCounter < 4) || (Racer1.lapCounter < 4 && Racer2.lapCounter == 4))
+						else if ((Racer1.lapCounter >= 4 && Racer2.lapCounter < 4) || (Racer1.lapCounter < 4 && Racer2.lapCounter >= 4))
 							{
 								place = 2;
 							}
