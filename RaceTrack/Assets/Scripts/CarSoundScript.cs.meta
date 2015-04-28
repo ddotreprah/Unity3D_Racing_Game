@@ -5,6 +5,8 @@ MonoImporter:
   defaultReferences:
   - accel: {fileID: 8300000, guid: 61a1e916e279a634a9e4e6eb739e3c0d, type: 3}
   - impact: {fileID: 8300000, guid: 89660505437820141889f0dba4075e5d, type: 3}
+  - idle: {fileID: 8300000, guid: 47291fc18a6ee4245bb7625bbef9d47a, type: 3}
+  - game_finish: {fileID: 8300000, guid: 2964c93e79a57134da85533de9c58331, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
