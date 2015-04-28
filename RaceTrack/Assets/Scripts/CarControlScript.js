@@ -16,6 +16,8 @@ public var Rac1 : GameObject;
 public var Rac2 : GameObject;
 public var Racer1 : CarControlScript;
 public var Racer2 : CarControlScript;
+public var AI1 : CarAIScript;
+public var AI2 : CarAIScript;
 var pauseMenuFont : Font;
 var lap : UI.Text;
 var timer : UI.Text;
@@ -25,6 +27,8 @@ function Awake()
 {
 	Racer1 = Rac1.GetComponent(CarControlScript);
 	Racer2 = Rac2.GetComponent(CarControlScript);
+	AI1 = Rac1.GetComponent(CarAIScript);
+	AI2 = Rac2.GetComponent(CarAIScript);
 }
 
 function Start () {
@@ -34,7 +38,13 @@ function Start () {
 
 }
 
+
+
 function FixedUpdate () {
+	if (AI1.isAIActive == true && AI2.isAIActive == true)
+	{
+		isActive = true;
+	}
 
     if (isActive ==  true)
 	{
