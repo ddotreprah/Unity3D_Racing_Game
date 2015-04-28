@@ -50,8 +50,8 @@ function FixedUpdate () {
 	{
 	    wheelRR.motorTorque = -maxTorque * Input.GetAxis("Vertical");
 	    wheelRL.motorTorque = -maxTorque * Input.GetAxis("Vertical");
-	    wheelFL.steerAngle = 5 * Input.GetAxis("Horizontal");
-	    wheelFR.steerAngle = 5 * Input.GetAxis("Horizontal");
+	    wheelFL.steerAngle = 4 * Input.GetAxis("Horizontal");
+	    wheelFR.steerAngle = 4 * Input.GetAxis("Horizontal");
 	    lap.text = "Lap: " + lapCounter.ToString() + "/3";
 	    timer.text = "Time: "  + myTimer.ToString();
 	    myTimer += Time.deltaTime;
