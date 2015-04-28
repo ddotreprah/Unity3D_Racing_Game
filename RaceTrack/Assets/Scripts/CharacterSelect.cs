@@ -38,7 +38,7 @@ public class CharacterSelect : MonoBehaviour {
 		GUI.skin.box.font = text;
 		GUI.skin.button.font = text;
 		if (toogle == true) {
-			GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 200, 300,300), "Finished. Place: ");
+			GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 200, 300,300), "Choose your character!");
 			
 			if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 100, 250,50), "Lucky"))
 			{
