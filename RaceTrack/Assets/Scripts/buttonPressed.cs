@@ -25,7 +25,7 @@ public class buttonPressed : MonoBehaviour {
 
     public void aboutClicked()
     {
-
+        Application.LoadLevel("About");
     }
 
     public void optionsClicked()
@@ -52,5 +52,10 @@ public class buttonPressed : MonoBehaviour {
     public void desertOasis()
     {
         Application.LoadLevel("Track_3");
+    }
+
+    public void returnToMain()
+    {
+        Application.LoadLevel("Menu");
     }
 }
