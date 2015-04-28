@@ -16,10 +16,15 @@ var wolf : CarControlScript;
 
 //Script from Easy Roads 3d example Unity store
 function Start () {
-
 	alli = Vector.GetComponent(CarControlScript);
 	monk = Lucky.GetComponent(CarControlScript);
 	wolf = Broken.GetComponent(CarControlScript);
+	
+}
+
+function Update()
+{
+	
 
 	if (alli.isActive)
 		{
@@ -34,6 +39,7 @@ function Start () {
 		{
 			car = Broken;
 		}
+
 }
 
 function LateUpdate () {

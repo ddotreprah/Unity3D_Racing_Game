@@ -15,6 +15,7 @@ public class CarAIScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+
         // Get the waypoint transforms.
         if (isAIActive)
         {
