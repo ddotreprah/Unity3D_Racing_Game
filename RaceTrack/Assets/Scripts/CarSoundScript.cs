@@ -5,7 +5,10 @@ public class CarSoundScript : MonoBehaviour {
 
     public AudioClip accel;
     public AudioClip impact;
+    public AudioClip idle;
+    public AudioClip game_finish;
     private AudioSource audio;
+    private int lap_counter = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -19,6 +22,21 @@ public class CarSoundScript : MonoBehaviour {
     {
         //plays the collision impact sound
         audio.PlayOneShot(impact);
+    }
+
+    void OnTriggerEnter(Collider coll)
+    {
+        //if coll.gameObject == "Finish" lap_counter++
+        //if lap_counter >= 3
+        //Play the gamefinish sound
+        if (coll.gameObject.tag == "FinishLine")
+        {
+            lap_counter++;
+            if (lap_counter >= 3)
+            {
+                audio.PlayOneShot(game_finish);
+            }
+        }
     }
 
 	// Update is called once per frame
