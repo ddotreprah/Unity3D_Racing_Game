@@ -38,4 +38,19 @@ public class buttonPressed : MonoBehaviour {
         Application.Quit();
 
     }
+
+    public void grassyKnoll()
+    {
+        Application.LoadLevel("Track_1");
+    }
+
+    public void frigidLanes()
+    {
+        Application.LoadLevel("Track_2");
+    }
+
+    public void desertOasis()
+    {
+        Application.LoadLevel("Track_3");
+    }
 }
