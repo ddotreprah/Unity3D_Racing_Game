@@ -10,6 +10,7 @@ public class CarAIScript : MonoBehaviour {
     public GameObject waypointContainer;
     public float speed = 10.0f;
     public bool isAIActive = false;
+	public bool started = false;
 
     //Help from Dr. Mayfield's waypoints test and https://www.youtube.com/watch?v=VbBY_jezoDI
     // Use this for initialization
@@ -17,30 +18,32 @@ public class CarAIScript : MonoBehaviour {
     {
 
         // Get the waypoint transforms.
-        if (isAIActive)
-        {
-            Transform[] potentialWaypoints = waypointContainer.GetComponentsInChildren<Transform>();
-
-            waypoints = new Transform[potentialWaypoints.Length - 1];
-
-            print("PlayerScript:  " + potentialWaypoints.Length);
-
-            for (int i = 0, j = 0; i < potentialWaypoints.Length; i++)
-            {
-                if (potentialWaypoints[i] != waypointContainer.transform)
-                {
-                    // This is not the container; add the waypoint to the array.
-                    waypoints[j++] = potentialWaypoints[i];
-                }
-            }
-
-
-            GetComponent<Rigidbody>().velocity = Vector3.right * speed;
-        }
+        
     }
 
     void FixedUpdate()
     {
+		if (isAIActive && started == false)
+		{
+			Transform[] potentialWaypoints = waypointContainer.GetComponentsInChildren<Transform>();
+			
+			waypoints = new Transform[potentialWaypoints.Length - 1];
+			
+			print("PlayerScript:  " + potentialWaypoints.Length);
+			
+			for (int i = 0, j = 0; i < potentialWaypoints.Length; i++)
+			{
+				if (potentialWaypoints[i] != waypointContainer.transform)
+				{
+					// This is not the container; add the waypoint to the array.
+					waypoints[j++] = potentialWaypoints[i];
+				}
+			}
+			
+			
+			GetComponent<Rigidbody>().velocity = Vector3.right * speed;
+			started = true;
+		}
         if (isAIActive)
         {
             Vector3 movement = NavigateTowardWaypoint();
@@ -68,4 +71,6 @@ public class CarAIScript : MonoBehaviour {
         return relativeWaypointPosition;
 
     }
+
+
 }
