@@ -20,7 +20,7 @@ public class buttonPressed : MonoBehaviour {
 
     public void learnMoreClicked()
     {
-
+        Application.LoadLevel("LearnToPlay");
     }
 
     public void aboutClicked()
