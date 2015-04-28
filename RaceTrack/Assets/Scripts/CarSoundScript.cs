@@ -26,9 +26,7 @@ public class CarSoundScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider coll)
     {
-        //if coll.gameObject == "Finish" lap_counter++
-        //if lap_counter >= 3
-        //Play the gamefinish sound
+        //Plays the game over sound when the last lap is completed
         if (coll.gameObject.tag == "FinishLine")
         {
             lap_counter++;
