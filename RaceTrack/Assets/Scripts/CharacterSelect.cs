@@ -40,7 +40,7 @@ public class CharacterSelect : MonoBehaviour {
 		if (toogle == true) {
 			GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 200, 300,300), "Finished. Place: ");
 			
-			if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 250,50), "Lucky"))
+			if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 100, 250,50), "Lucky"))
 			{
 				BrokenAI.isAIActive = true;
 				VectorAI.isAIActive = true;
@@ -48,7 +48,7 @@ public class CharacterSelect : MonoBehaviour {
 				AudioListener.volume = 1;
 				toogle = false; 
 			}
-			if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 50, 250,50), "Broken"))
+			if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2 - 50, 250,50), "Broken"))
 			{
 				LuckyAI.isAIActive = true;
 				VectorAI.isAIActive = true;
@@ -56,7 +56,7 @@ public class CharacterSelect : MonoBehaviour {
 				AudioListener.volume = 1;
 				toogle = false;
 			}
-			if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2, 250,50), "Vector"))
+			if (GUI.Button(new Rect(Screen.width / 2 - 125, Screen.height / 2, 250,50), "Vector"))
 			{
 				BrokenAI.isAIActive = true;
 				LuckyAI.isAIActive = true;
