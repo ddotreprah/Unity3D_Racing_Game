@@ -75,14 +75,14 @@ function OnTriggerEnter(collision : Collider)
 				lapCounter++;
 				Debug.Log(lapCounter);
 				FirstHalf = true;
-				if (lapCounter == 4)
+				if (lapCounter == 2)
 					{
-						if ((Racer1.lapCounter < 4 && Racer2.lapCounter < 4))
+						if ((Racer1.lapCounter < 2 && Racer2.lapCounter < 2))
 							{
 							
 								place = 1;
 							}
-						else if ((Racer1.lapCounter >= 4 && Racer2.lapCounter < 4) || (Racer1.lapCounter < 4 && Racer2.lapCounter >= 4))
+						else if ((Racer1.lapCounter >= 2 && Racer2.lapCounter < 2) || (Racer1.lapCounter < 2 && Racer2.lapCounter >= 2))
 							{
 								place = 2;
 							}
