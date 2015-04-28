@@ -54,7 +54,7 @@ public class CarSoundScript : MonoBehaviour {
         {
             audio.PlayOneShot(accel);
         }
-        if(Input.GetKeyDown("Y Axis"))
+        if(Input.GetButtonDown("Y Axis") == true)
         {
             audio.PlayOneShot(accel);
         }
